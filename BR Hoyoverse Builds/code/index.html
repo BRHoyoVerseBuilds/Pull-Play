@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navigation Bar</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css"> <!-- External CSS link -->
+</head>
+<body>
+
+  <div class="top-nav">
+    <div class="inside">
+      <!-- Left Menu Control (Desktop View) -->
+      <button type="button" class="left-menu-control desktop btn btn-link">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right-to-bracket" class="svg-inline--fa fa-arrow-right-to-bracket fa-rotate-180" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path fill="currentColor" d="M416 32h-64c-17.67 0-32 14.33-32 32s14.33 32 32 32h64c17.67 0 32 14.33 32 32v256c0 17.67-14.33 32-32 32h-64c-17.67 0-32 14.33-32 32s14.33 32 32 32h64c53.02 0 96-42.98 96-96V128C512 74.98 469 32 416 32zM342.6 233.4l-128-128c-12.51-12.51-32.76-12.49-45.25 0c-12.5 12.5-12.5 32.75 0 45.25L242.8 224H32C14.31 224 0 238.3 0 256s14.31 32 32 32h210.8l-73.38 73.38c-12.5 12.5-12.5 32.75 0 45.25s32.75 12.5 45.25 0l128-128C355.1 266.1 355.1 245.9 342.6 233.4z"></path>
+        </svg>
+      </button>
+
+      <!-- Left Menu Control (Mobile View) -->
+      <button type="button" class="left-menu-control mobile btn btn-link">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"></path>
+        </svg>
+      </button>
+
+      <!-- Logo -->
+      <div class="logo">
+        <img src="https://github.com/BRHoyoVerseBuilds/BR-Character-Builds/blob/main/img/header.png?raw=true" alt="Logo" />
+      </div>
+
+      <!-- Navigation Links (Desktop View) -->
+      <div class="desktop-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/services" class="nav-link">Services</a>
+        <a href="/contact" class="nav-link">Contact</a>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search..." class="search-input">
+        <button type="button" id="search-btn" class="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+
+      <!-- User Profile / Sign-In Button -->
+      <div class="user-profile">
+        <button type="button" id="sign-in-btn" class="profile-btn">
+          <i class="fas fa-user"></i> Sign In
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Links Section (Mobile View) -->
+  <div class="left-links">
+    <a href="/star-rail/watch-our-partners">
+      <button type="button" class="btn btn-primary">
+        <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitch" class="svg-inline--fa fa-twitch" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path fill="currentColor" d="M391.2 103.5H352.5v109.7h38.63zM285 103H246.4V212.8H285zM120.8 0 24 96.8v318.4l96.8 96.8H391.2l96.8-96.8V96.8L391.2 0H120.8zm232.7 416.9h-16.9l-96.8-96.8v-163h-38.6v-38.6h38.6V96.8h96.8V289.8h38.6v38.6h-38.6v96.8l-96.8 96.8h16.9z"></path>
+        </svg>
+        Our Partners
+      </button>
+    </a>
+  </div>
+
+  <!-- External JavaScript Files -->
+  <script src="../scripts/script.js"></script> <!-- Main Script, which dynamically loads other scripts -->
+</body>
+</html>

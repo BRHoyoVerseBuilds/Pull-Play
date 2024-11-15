@@ -1,0 +1,203 @@
+/* Basic reset and body styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  .top-nav {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .top-nav .inside {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+/* Logo Styling */
+.logo img {
+    max-width: 320px; /* Increased width for better visibility */
+    height: auto;     /* Maintain aspect ratio */
+    margin-right: 20px; /* Add some spacing from the next element */
+  }
+  
+  /* Ensure proper alignment within the navigation */
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  /* Navigation buttons */
+  .btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .btn svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .btn-primary {
+    background-color: #6200ea;
+    border-radius: 4px;
+  }
+  
+  .btn-link {
+    background: none;
+    color: white;
+  }
+  
+  /* For mobile responsiveness */
+  .left-links a {
+    margin: 0 10px;
+  }
+  
+  /* Mobile view */
+  @media (max-width: 768px) {
+    .top-nav .inside {
+      flex-direction: column;
+    }
+  
+    .left-links {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    .mobile {
+      display: block;
+    }
+  
+    .desktop {
+      display: none;
+    }
+  }
+  
+  /* Desktop view */
+  @media (min-width: 769px) {
+    .desktop {
+      display: block;
+    }
+  
+    .mobile {
+      display: none;
+    }
+  }
+  
+
+  /* Home About Services Contact */
+/* General Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  .top-nav {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .top-nav .inside {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+
+/* Logo Styling */
+  
+  
+  /* Desktop Navigation Links */
+  .desktop-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 30px; /* Adds space from the logo */
+  }
+  
+  .desktop-nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 4px;
+  }
+  
+  /* Hover Effects for Desktop Links */
+  .desktop-nav a:hover {
+    background-color: #00a0ea; /* A nice purple background on hover */
+    transform: translateY(-2px); /* Slight raise effect */
+  }
+  
+  .desktop-nav a.active {
+    background-color: #00a0ea;
+  }
+  
+  /* Mobile Navigation Links (for mobile view) */
+  .left-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .left-links a {
+    text-decoration: none;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: #333;
+    border-radius: 4px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Hover Effects for Mobile Links */
+  .left-links a:hover {
+    background-color: #00a0ea;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .top-nav .inside {
+      flex-direction: column;
+    }
+  
+    .desktop-nav {
+      display: none; /* Hide desktop links on mobile */
+    }
+  
+    .left-links {
+      display: block;
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .desktop-nav {
+      display: flex; /* Show desktop links on larger screens */
+    }
+  
+    .left-links {
+      display: none; /* Hide mobile links on larger screens */
+    }
+  }
+  
