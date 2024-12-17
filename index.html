@@ -1,1 +1,499 @@
+<html><head><base href="." />
+<style>
+  :root {
+    --primary: #1a1a2e;
+    --secondary: #16213e;
+    --accent: #0f3460;
+    --highlight: #e94560;
+    --background: #0a0a1a;
+    --text: #ffffff;
+    --gradient: linear-gradient(135deg, var(--accent), var(--highlight));
+  }
 
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text);
+  }
+
+  .navbar {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
+  }
+
+  .logo img {
+    height: 40px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: var(--highlight);
+  }
+
+  /* Dropdown styles */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background: var(--primary);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    top: 100%;
+    left: 0;
+  }
+
+  .dropdown-content a {
+    color: var(--accent);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+  }
+
+  .dropdown-content a:hover {
+    background-color: var(--secondary);
+    color: var(--text);
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown .dropdown-button {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .dropdown .dropdown-button:after {
+    content: '▼';
+    font-size: 0.8em;
+  }
+
+  .hero {
+    margin-top: 80px;
+    min-height: 80vh;
+    background: var(--gradient);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23ffffff' fill-opacity='0.1' width='100' height='100'/%3E%3C/svg%3E");
+    opacity: 0.1;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .featured-games {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--highlight);
+  }
+
+  .game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 280px);
+    gap: 2.5rem;
+    padding: 1rem;
+    justify-content: center;
+  }
+
+  .game-card {
+    width: 280px;
+    background: rgba(26, 26, 46, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(233,69,96,0.3);
+  }
+
+  .game-card:hover .game-icon img {
+    transform: scale(1.05);
+  }
+
+  .game-icon {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .game-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+  }
+
+  .game-card h3 {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  .game-card p {
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+
+  .game-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    color: var(--highlight);
+    font-size: 0.9rem;
+  }
+
+  .footer {
+    background: var(--secondary);
+    padding: 3rem 1rem;
+    margin-top: 6rem;
+    position: relative;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient);
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .footer-section {
+    padding: 1rem;
+  }
+
+  .footer-section h3 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .footer-section ul {
+    list-style: none;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-section a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-section a:hover {
+    color: var(--highlight);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--secondary);
+    color: var(--text);
+    opacity: 0.8;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .social-links a {
+    background: var(--gradient);
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .social-links a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(233,69,96,0.3);
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .game-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .game-card:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+</style>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="logo">
+        <img src="https://github.com/BRHoyoVerseBuilds/Pull-Play/blob/main/img/Pull%20&%20Play%20Logo.png?raw=true" alt="Pull & Play Logo">
+        Pull & Play
+      </div>
+      <div class="nav-links">
+        <div class="dropdown">
+          <span class="dropdown-button">Games</span>
+          <div class="dropdown-content">
+            <a href="/hsr">Honkai: Star Rail</a>
+            <a href="https://example.com/games/genshin-impact">Genshin Impact</a>
+            <a href="https://example.com/games/zenless-zone-zero">Zenless Zone Zero</a>
+            <a href="https://example.com/games/wuthering-waves">Wuthering Waves</a>
+          </div>
+        </div>
+        <a href="https://example.com/news">News</a>
+        <a href="https://example.com/announcements">Announcements</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>P&P: Your Ultimate Build Showcase</h1>
+    <p style="margin: 1rem 0 2rem; font-size: 1.2rem;">Discover and explore optimized character builds</p>
+  </section>
+
+  <section class="featured-games">
+    <h2 class="section-title">Games</h2>
+    <div class="game-grid">
+      <a href="/hsr.html" class="game-card">
+        <div class="game-icon">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlMu1fk-asW72f-zpQju00lJuPDnIyNSjzMNHQeKWdnKMTcr4MQ3s0PHvlHs5IK2hX3ZA&usqp=CAU" alt="Honkai: Star Rail">
+        </div>
+        <h3>Honkai: Star Rail</h3>
+        <p>Strategic turn-based RPG</p>
+        <div class="game-info">
+          <span>🎮 RPG</span>
+          <span>👥 20M+ Players</span>
+        </div>
+      </a>
+
+      <a href="https://example.com/games/genshin-impact" class="game-card">
+        <div class="game-icon">
+          <img src="https://play-lh.googleusercontent.com/-gSYfE68AvxlSAiKzXThyDw1-iUlwBJGsJBAXllBA8i_NM7kvft32U2DYSmQFglaOaw=w240-h480-rw" alt="Genshin Impact">
+        </div>
+        <h3>Genshin Impact</h3>
+        <p>Open-world action RPG</p>
+        <div class="game-info">
+          <span>🌍 Open World</span>
+          <span>👥 60M+ Players</span>
+        </div>
+      </a>
+
+      <a href="https://example.com/games/zenless-zone-zero" class="game-card">
+        <div class="game-icon">
+          <img src="https://play-lh.googleusercontent.com/X6TCjPjr0nhZqeBDn8TWB-gavRdDx42_S7xVkJ5SmAHefIFKIl7xPoob-MZXJZG5U4E=w600-h300-pc0xffffff-pd" alt="Zenless Zone Zero">
+        </div>
+        <h3>Zenless Zone Zero</h3>
+        <p>Action-packed hack and slash</p>
+        <div class="game-info">
+          <span>⚔️ Action</span>
+          <span>👥 4M+ Players</span>
+        </div>
+      </a>
+
+      <a href="https://example.com/games/wuthering-waves" class="game-card">
+        <div class="game-icon">
+          <img src="https://cdn1.epicgames.com/spt-assets/c1586295960b46f88bbfeec32c199e0e/wuthering-waves-1sbdg.jpg" alt="Wuthering Waves">
+        </div>
+        <h3>Wuthering Waves</h3>
+        <p>Open-world action RPG</p>
+        <div class="game-info">
+          <span>🌍 Open World</span>
+          <span>👥 14M+ Players</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About P&P</h3>
+        <p>Your ultimate destination for optimized character builds across multiple gaming universes.</p>
+        <div class="social-links">
+          <a href="https://discord.gg/pullandplay" title="Discord">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+            </svg>
+          </a>
+          <a href="https://twitter.com/pullnplay" title="Twitter">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="https://example.com/news">News</a></li>
+          <li><a href="https://example.com/announcements">Announcements</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2024 Pull & Play. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Smooth scroll handling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href'))?.scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Parallax effect for hero section
+      window.addEventListener('scroll', () => {
+        const hero = document.querySelector('.hero');
+        const scrolled = window.pageYOffset;
+        hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+      });
+
+      // Intersection Observer for game cards
+      const cards = document.querySelectorAll('.game-card');
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '50px' }
+      );
+
+      cards.forEach(card => observer.observe(card));
+    });
+  </script>
+</body>
+</html>
