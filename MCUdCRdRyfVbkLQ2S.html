@@ -1,0 +1,562 @@
+<html><head><base href="https://example.com/games/honkai-star-rail"><style>
+    :root {
+      --primary: #1a1a2e;
+      --secondary: #16213e;
+      --accent: #0f3460;
+      --highlight: #e94560;
+      --background: #0a0a1a;
+      --text: #ffffff;
+      --gradient: linear-gradient(135deg, var(--accent), var(--highlight));
+    }
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  
+    body {
+      background-color: var(--background);
+      color: var(--text);
+    }
+  
+    .navbar {
+      background: rgba(26, 26, 46, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+  
+    .navbar-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .logo {
+      font-size: 1.8rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: transform 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  
+    .logo:hover {
+      transform: scale(1.05);
+    }
+  
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+  
+    .nav-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+  
+    .nav-links a:hover {
+      color: var(--highlight);
+    }
+  
+    .game-header {
+      margin-top: 80px;
+      height: 60vh;
+      background-image: url('https://cdn.wccftech.com/wp-content/uploads/2023/05/EPIC2560x1440-EN_2560x1440-e3a424594bad5b013ef4a19625f05146.jpeg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+    }
+  
+    .game-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(0deg, rgba(10,10,26,1) 0%, rgba(10,10,26,0) 100%);
+    }
+  
+    .game-info {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+  
+    .game-title {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+  
+    .game-description {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+  
+    .game-stats {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 1rem;
+    }
+  
+    .stat {
+      background: rgba(26, 26, 46, 0.8);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  
+    .character-section {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+    }
+  
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--highlight);
+    }
+  
+    .character-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+  
+    .character-card {
+      background: rgba(26, 26, 46, 0.8);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+  
+    .character-card:hover {
+      transform: translateY(-5px);
+    }
+  
+    .character-image {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+  
+    .character-info {
+      padding: 1rem;
+      text-align: center;
+    }
+  
+    .character-name {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+  
+    .character-role {
+      color: var(--highlight);
+      font-size: 0.9rem;
+    }
+  
+    .character-card a {
+      display: block;
+      text-align: center;
+      color: var(--highlight);
+      text-decoration: none;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      transition: color 0.3s;
+    }
+  
+    .character-card a:hover {
+      color: var(--text);
+      background: var(--highlight);
+    }
+  </style>
+  
+  <body>
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a href="/" class="logo">
+          <img src="https://github.com/BRHoyoVerseBuilds/Pull-Play/blob/main/img/Pull%20&%20Play%20Logo.png?raw=true" alt="Pull & Play Logo" style="height: 40px;">
+          Pull & Play
+        </a>
+        <div class="nav-links">
+          <a href="/games">Games</a>
+          <a href="/news">News</a>
+          <a href="/announcements">Announcements</a>
+        </div>
+      </div>
+    </nav>
+  
+    <header class="game-header">
+      <div class="game-info">
+        <h1 class="game-title">Honkai: Star Rail</h1>
+        <div class="game-stats">
+          <div class="stat">
+            <span>🎮 Genre:</span>
+            <span>Turn-based RPG</span>
+          </div>
+          <div class="stat">
+            <span>👥 Players:</span>
+            <span>20M+</span>
+          </div>
+          <div class="stat">
+            <span>🌟 Rating:</span>
+            <span>4.5/5</span>
+          </div>
+        </div>
+        <p class="game-description">
+          Embark on an epic journey across the stars in Honkai: Star Rail, 
+          a space fantasy RPG with stunning visuals and strategic turn-based combat. 
+          Choose your path through the cosmic rails and unveil the mysteries of the universe.
+        </p>
+      </div>
+    </header>
+  
+    <section class="character-section">
+      <h2 class="section-title">Characters</h2>
+      <div class="character-grid">
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3017.png" alt="Acheron" class="character-image">
+            <h3>Acheron</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/436053" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3009.png" alt="Argenti" class="character-image">
+            <h3>Argenti</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/428046" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1008.png" alt="arlan" class="character-image">
+            <h3>arlan</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405754" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1009.png" alt="Asta" class="character-image">
+            <h3>Asta</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/search?q=Asta" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3018.png" alt="Aventurine" class="character-image">
+            <h3>Aventurine</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/429966" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1211.png" alt="Bailu" class="character-image">
+            <h3>Bailu</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405753" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3014.png" alt="Black Swan" class="character-image">
+            <h3>Black Swan</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/436054" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1205.png" alt="Blade" class="character-image">
+            <h3>Blade</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405762" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3020.png" alt="Boothiill" class="character-image">
+            <h3>Boothiill</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/search?q=Boothiill" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1101.png" alt="Bronya" class="character-image">
+            <h3>Bronya</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405750" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1107.png" alt="Clara" class="character-image">
+            <h3>Clara</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405769" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1002.png" alt="Dan Heng" class="character-image">
+            <h3>Dan Heng</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405749" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3002.png" alt="Imbibitor Lunae" class="character-image">
+            <h3>Imbibitor Lunae</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/417235" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3012.png" alt="Dr Ratio" class="character-image">
+            <h3>Dr Ratio</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/431768" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3031.png" alt="Feixiao" class="character-image">
+            <h3>Feixiao</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/462222" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3025.png" alt="Firefly" class="character-image">
+            <h3>Firefly</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/437263" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3003.png" alt="Fu Xuan" class="character-image">
+            <h3>Fu Xuan</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405760" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3019.png" alt="Gallagher" class="character-image">
+            <h3>Gallagher</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/437255" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1104.png" alt="Gepard" class="character-image">
+            <h3>Gepard</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405748" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3007.png" alt="Guinaifen" class="character-image">
+            <h3>Guinaifen</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/421890" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3010.png" alt="Hanya" class="character-image">
+            <h3>Hanya</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/428424" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1013.png" alt="Herta" class="character-image">
+            <h3>Herta</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405747" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1003.png" alt="Himeko" class="character-image">
+            <h3>Himeko</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/search?q=Himeko" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1109.png" alt="Hook" class="character-image">
+            <h3>Hook</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405741" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3008.png" alt="Huohuo" class="character-image">
+            <h3>Huohuo</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/427878" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3026.png" alt="Jade" class="character-image">
+            <h3>Jade</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/451833" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1204.png" alt="Jing Yuan" class="character-image">
+            <h3>Jing Yuan</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405756" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3005.png" alt="Jingliu" class="character-image">
+            <h3>Jingliu</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/411783" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1005.png" alt="Kafka" class="character-image">
+            <h3>Kafka</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405755" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3030.png" alt="Lingsha" class="character-image">
+            <h3>Lingsha</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/462279" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3000.png" alt="Luka" class="character-image">
+            <h3>Luka</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/413437" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1203.png" alt="Luocha" class="character-image">
+            <h3>Luocha</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405764" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3004.png" alt="Lynx" class="character-image">
+            <h3>Lynx</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/417498" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1001.png" alt="March 7th" class="character-image">
+            <h3>March 7th</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405746" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3029.png" alt="March 7th (Hunt)" class="character-image">
+            <h3>March 7th (Hunt)</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/456967" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3015.png" alt="Misha" class="character-image">
+            <h3>Misha</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/436839" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3032.png" alt="Moze" class="character-image">
+            <h3>Moze</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/462333" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1105.png" alt="Natasha" class="character-image">
+            <h3>Natasha</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405768" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1106.png" alt="Pela" class="character-image">
+            <h3>Pela</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405745" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1201.png" alt="Qingque" class="character-image">
+            <h3>Qingque</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405759" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3033.png" alt="Rappa" class="character-image">
+            <h3>Rappa</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/469196" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3021.png" alt="Robin" class="character-image">
+            <h3>Robin</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/437261" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3011.png" alt="Ruan Mei" class="character-image">
+            <h3>Ruan Mei</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/431762" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1108.png" alt="Sampo" class="character-image">
+            <h3>Sampo</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405761" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1102.png" alt="Seele" class="character-image">
+            <h3>Seele</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405758" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1103.png" alt="Serval" class="character-image">
+            <h3>Serval</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405752" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1006.png" alt="Silver Wolf" class="character-image">
+            <h3>Silver Wolf</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405757" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3016.png" alt="Sparkle" class="character-image">
+            <h3>Sparkle</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/436832" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3034.png" alt="Sunday" class="character-image">
+            <h3>Sunday</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/437272" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1206.png" alt="Sushang" class="character-image">
+            <h3>Sushang</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/search?q=Sushang" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1202.png" alt="Tingyun" class="character-image">
+            <h3>Tingyun</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/search?q=Tingyun" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3006.png" alt="Topaz" class="character-image">
+            <h3>Topaz</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/421778" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/8001.png" alt="Trailblazer (Physical)" class="character-image">
+            <h3>Trailblazer (Physical)</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/search?q=Trailblazer%20(Physical)" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/8003.png" alt="Trailblazer (Fire)" class="character-image">
+            <h3>Trailblazer (Fire)</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/search?q=Trailblazer%20(Fire)" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3022.png" alt="Trailblazer (Imaginary)" class="character-image">
+            <h3>Trailblazer (Imaginary)</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/search?q=Trailblazer%20(Imaginary)" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1004.png" alt="Welt" class="character-image">
+            <h3>Welt</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405763" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3013.png" alt="Xueyi" class="character-image">
+            <h3>Xueyi</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/431761" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1209.png" alt="Yanqing" class="character-image">
+            <h3>Yanqing</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/405744" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1207-2.png" alt="Yukong" class="character-image">
+            <h3>Yukong</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/411586" target="_blank">View Build Guide</a>
+        </div>
+        <div class="character-card">
+            <img src="https://rerollcdn.com/STARRAIL/Characters/Full/3028.png" alt="Yunli" class="character-image">
+            <h3>Yunli</h3>
+            <a href="https://game8.co/games/Honkai-Star-Rail/archives/457101" target="_blank">View Build Guide</a>
+        </div>
+      </div>
+    </section>
+  
+    <script>
+      // Add scroll effects
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('.game-header');
+        const scrolled = window.pageYOffset;
+        header.style.backgroundPositionY = scrolled * 0.5 + 'px';
+      });
+  
+      // Add character card click handlers
+      document.querySelectorAll('.character-card').forEach(card => {
+        card.addEventListener('click', () => {
+          // Future implementation: Navigate to character detail page
+          console.log('Character clicked:', card.querySelector('h3').textContent);
+        });
+      });
+    </script>
+  </body></html>
