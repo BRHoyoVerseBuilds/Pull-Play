@@ -155,7 +155,6 @@
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease;
-    cursor: pointer;
     position: relative;
   }
 
@@ -165,6 +164,7 @@
 
   .character-image {
     width: 100%;
+    height: auto;
     aspect-ratio: 1;
     object-fit: cover;
   }
@@ -660,6 +660,30 @@
   transform: translate(-50%, -50%);
 }
 
+.character-grid a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.character-card {
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.character-card:hover {
+    transform: translateY(-5px);
+}
+
+.character-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
 
 </style>
 
