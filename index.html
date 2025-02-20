@@ -13,6 +13,8 @@
         <span class="logo-text">Pull & Play</span>
       </div>
       <div class="nav-links">
+        <a href="#games" class="nav-link">Games</a>
+        <a href="#tools" class="nav-link">Tools</a>
         <button class="theme-toggle" id="themeToggle">
           <svg class="sun-icon" viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="5"></circle>
@@ -32,8 +34,7 @@
       </div>
     </div>
   </nav>
-
-  <div class="hero">
+  <div id="top" class="hero">
     <div class="hero-content">
       <h1 class="glitch" data-text="Build Your Legend">Build Your Legend</h1>
       <p class="hero-subtitle">Discover optimized character builds across multiple universes</p>
@@ -44,25 +45,20 @@
       <div class="particle"></div>
     </div>
   </div>
-
-  <section class="games-section">
+  <section class="quick-links-section">
+    <div class="section-header">
+      <h2 class="section-title">Favorite Characters</h2>
+      <svg class="collapse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 15 12 9 18 15"></polyline>
+      </svg>
+    </div>
+    <div id="quickLinksContainer" class="quick-links-container">
+      <!-- Quick links will be dynamically inserted here -->
+    </div>
+  </section>
+  <section id="games" class="games-section">
     <h2 class="section-title">Featured Games</h2>
     <div class="game-grid">
-      <div class="game-card" data-game="hsr">
-        <div class="game-image">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlMu1fk-asW72f-zpQju00lJuPDnIyNSjzMNHQeKWdnKMTcr4MQ3s0PHvlHs5IK2hX3ZA&usqp=CAU" alt="Honkai: Star Rail">
-        </div>
-        <div class="game-content">
-          <h3>Honkai: Star Rail</h3>
-          <p>Strategic turn-based RPG with deep character customization</p>
-          <div class="game-meta">
-            <span class="game-tag">RPG</span>
-            <span class="game-players">20M+ Players</span>
-          </div>
-          <a href="https://game8.co/games/Honkai-Star-Rail" class="game-link">View Builds</a>
-        </div>
-      </div>
-
       <div class="game-card" data-game="genshin">
         <div class="game-image">
           <img src="https://play-lh.googleusercontent.com/-gSYfE68AvxlSAiKzXThyDw1-iUlwBJGsJBAXllBA8i_NM7kvft32U2DYSmQFglaOaw=w240-h480-rw" alt="Genshin Impact">
@@ -70,14 +66,19 @@
         <div class="game-content">
           <h3>Genshin Impact</h3>
           <p>Open-world action RPG with elemental combat</p>
-          <div class="game-meta">
-            <span class="game-tag">Open World</span>
-            <span class="game-players">60M+ Players</span>
-          </div>
-          <a href="https://game8.co/games/Genshin-Impact/archives/296707" class="game-link">View Builds</a>
+          <a href="https://keqingmains.com/#search" class="game-link">View Builds</a>
         </div>
       </div>
-
+      <div class="game-card" data-game="hsr">
+        <div class="game-image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlMu1fk-asW72f-zpQju00lJuPDnIyNSjzMNHQeKWdnKMTcr4MQ3s0PHvlHs5IK2hX3ZA&usqp=CAU" alt="Honkai: Star Rail">
+        </div>
+        <div class="game-content">
+          <h3>Honkai: Star Rail</h3>
+          <p>Strategic turn-based RPG with deep character customization</p>
+          <a href="https://www.prydwen.gg/star-rail/characters" class="game-link">View Builds</a>
+        </div>
+      </div>
       <div class="game-card" data-game="zzz">
         <div class="game-image">
           <img src="https://preview.redd.it/zenless-zone-zero-icon-v0-9ss6qz6tuwx81.png?auto=webp&s=a1ae22c3c24df4db08c9c540313d59f60776957e" alt="Zenless Zone Zero">
@@ -85,14 +86,9 @@
         <div class="game-content">
           <h3>Zenless Zone Zero</h3>
           <p>Action-packed urban fantasy with stylish combat</p>
-          <div class="game-meta">
-            <span class="game-tag">Action</span>
-            <span class="game-players">4M+ Players</span>
-          </div>
-          <a href="https://game8.co/games/Zenless-Zone-Zero" class="game-link">View Builds</a>
+          <a href="https://www.prydwen.gg/zenless/characters" class="game-link">View Builds</a>
         </div>
       </div>
-
       <div class="game-card" data-game="ww">
         <div class="game-image">
           <img src="https://cdn1.epicgames.com/spt-assets/c1586295960b46f88bbfeec32c199e0e/wuthering-waves-1sbdg.jpg" alt="Wuthering Waves">
@@ -100,14 +96,9 @@
         <div class="game-content">
           <h3>Wuthering Waves</h3>
           <p>Post-apocalyptic action RPG with fluid combat</p>
-          <div class="game-meta">
-            <span class="game-tag">Open World</span>
-            <span class="game-players">14M+ Players</span>
-          </div>
           <a href="https://game8.co/games/Wuthering-Waves" class="game-link">View Builds</a>
         </div>
       </div>
-
       <div class="game-card" data-game="nikke">
         <div class="game-image">
           <img src="https://assets-prd.ignimgs.com/2022/10/27/nikke-goddess-of-victory-button-2-1666894865811.jpg" alt="Goddess of Victory: NIKKE">
@@ -115,17 +106,32 @@
         <div class="game-content">
           <h3>Goddess of Victory: NIKKE</h3>
           <p>Sci-Fi RPG shooter with unique vertical gameplay</p>
-          <div class="game-meta">
-            <span class="game-tag">RPG</span>
-            <span class="game-players">10M+ Players</span>
-          </div>
           <a href="https://www.prydwen.gg/nikke/characters" class="game-link">View Builds</a>
+        </div>
+      </div>
+      <div class="game-card" data-game="reverse1999">
+        <div class="game-image">
+          <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3092660/436a58404c9c4ee533a8f77495a343b23881382a/capsule_616x353.jpg?t=1737375847" alt="Reverse 1999">
+        </div>
+        <div class="game-content">
+          <h3>Reverse 1999</h3>
+          <p>Time-bending strategic RPG with unique aesthetics</p>
+          <a href="https://prydwen.gg/re1999/characters" class="game-link">View Builds</a>
+        </div>
+      </div>
+      <div class="game-card" data-game="afkjourney">
+        <div class="game-image">
+          <img src="https://yt3.googleusercontent.com/toII5B_EHNDtHcJN5z2yCNhoSfKTULXyaiRoSWwJfZjW4QdpYQ6ZTOUgnV6A6tCeOVhosBXJUbM=s900-c-k-c0x00ffffff-no-rj" alt="AFK Journey">
+        </div>
+        <div class="game-content">
+          <h3>AFK Journey</h3>
+          <p>Strategic idle RPG with deep progression systems</p>
+          <a href="https://prydwen.gg/afk-journey/characters/" class="game-link">View Builds</a>
         </div>
       </div>
     </div>
   </section>
-
-  <section class="tracker-section">
+  <section id="tools" class="tracker-section">
     <h2 class="section-title">Tools & Utilities</h2>
     <div class="tracker-container">
       <div class="tracker-card">
@@ -144,36 +150,37 @@
           <a href="https://brhoyoversebuilds.github.io/Pull-Play/GT.html" class="tracker-button">Launch Tracker</a>
         </div>
       </div>
+
+      <div class="tracker-card">
+        <div class="tracker-image">
+          <img src="https://raw.githubusercontent.com/BRHoyoVerseBuilds/Pull-Play/refs/heads/main/img/game%20wiki.webp" alt="Game Wiki">
+        </div>
+        <div class="tracker-content">
+          <h3>Game Wiki</h3>
+          <p>Access comprehensive game knowledge and guides in one place</p>
+          <ul class="tracker-features">
+            <li>Character Lore</li>
+            <li>Quest Walkthroughs</li>
+            <li>Game Mechanics</li>
+            <li>Tips & Strategies</li>
+          </ul>
+          <a href="https://brhoyoversebuilds.github.io/Pull-Play/wiki.html" class="tracker-button">View Wiki</a>
+        </div>
+      </div>
     </div>
   </section>
-
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-section">
         <h3>Pull & Play</h3>
         <p>Your ultimate companion for gacha gaming success. Comprehensive guides, optimized builds, and detailed game information.</p>
       </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <a href="/privacy-policy">Privacy Policy</a>
-        <a href="/terms">Terms of Service</a>
-        <a href="/about">About Us</a>
-      </div>
-      <div class="footer-section">
-        <h3>Connect</h3>
-        <div class="social-links">
-          <a href="#" class="social-link">Discord</a>
-          <a href="#" class="social-link">Twitter</a>
-          <a href="#" class="social-link">Reddit</a>
-        </div>
-      </div>
     </div>
     <div class="footer-bottom">
-      <p> 2024 Pull & Play. All rights reserved.</p>
+      <p> 2025 Pull & Play. All rights reserved.</p>
       <p class="legal">This site is not affiliated with or endorsed by game publishers. All game assets are property of their respective owners.</p>
     </div>
   </footer>
-
   <script src="main.js" type="module"></script>
 </body>
 </html>

@@ -1,153 +1,159 @@
-<html><head><base href="." /><meta charset="UTF-8"><style>
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  background: linear-gradient(135deg, #1a1c2e, #2a2c4e);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-.container {
-  padding: 2rem;
-  max-width: 800px;
-  width: 100%;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
-  background: linear-gradient(45deg, #6e8efb, #ff8e9e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1));
-  transition: transform 0.6s ease;
-}
-
-.card:hover::before {
-  transform: translateX(100%);
-}
-
-.card h2 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  color: #fff;
-}
-
-.card p {
-  margin-bottom: 1.5rem;
-  color: rgba(255,255,255,0.8);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(45deg, #6e8efb, #ff8e9e);
-  border: none;
-  border-radius: 25px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(110,142,251,0.4);
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-.card {
-  animation: float 6s ease-in-out infinite;
-  animation-delay: calc(var(--delay) * 1s);
-}
-</style></head><body>
-<div class="container">
-  <h1>Gacha Game Trackers Hub</h1>
-  <div class="grid">
-    <div class="card" style="--delay: 0">
-      <h2>Paimon.moe</h2>
-      <p>Track your Genshin Impact wishes, characters, and materials with this comprehensive tool. Perfect for planning your pulls and managing resources.</p>
-      <a href="https://paimon.moe/wish" class="btn">Open Tracker</a>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Trackers - Pull & Play</title>
+  <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="nav-left">
+        <div class="logo">
+          <img src="https://github.com/BRHoyoVerseBuilds/Pull-Play/blob/main/img/Amara_Logo_Transparent.png?raw=true" alt="Pull & Play Logo">
+          <span class="logo-text">Pull & Play</span>
+        </div>
+        <div class="nav-links">
+          <a href="https://brhoyoversebuilds.github.io/Pull-Play/" class="nav-link">Home</a>
+          <a href="#trackers" class="nav-link">Trackers</a>
+          <a href="#tools" class="nav-link">Tools</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle">
+        <svg class="sun-icon" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
     </div>
-    
-    <div class="card" style="--delay: 0.2">
-      <h2>StarRail Station</h2>
-      <p>Your go-to destination for Honkai: Star Rail warp tracking. Monitor your pity and plan your future warps effectively.</p>
-      <a href="https://starrailstation.com/en/warp#char_event" class="btn">Open Tracker</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1 class="glitch" data-text="Game Trackers">Game Trackers</h1>
+      <p class="hero-subtitle">Track your progress and plan your pulls across multiple gacha games</p>
     </div>
-    
-    <div class="card" style="--delay: 0.4">
-      <h2>Zenless Zone Zero DB</h2>
-      <p>Keep track of your ZZZ signals and progression with this specialized tracker. Stay ahead in your collection journey.</p>
-      <a href="https://stardb.gg/en/zzz/signal-tracker" class="btn">Open Tracker</a>
-    </div>
-    
-    <div class="card" style="--delay: 0.6">
-      <h2>Wuwa Tracker</h2>
-      <p>Comprehensive tracking tool for various gacha games. Monitor your pulls, resources, and progress across multiple titles.</p>
-      <a href="https://wuwatracker.com/tracker" class="btn">Open Tracker</a>
+    <div class="hero-background">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
     </div>
   </div>
-</div>
 
-<script>
-document.querySelectorAll('.btn').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    const ripple = document.createElement('div');
-    ripple.classList.add('ripple');
-    btn.appendChild(ripple);
-    
-    setTimeout(() => {
-      ripple.remove();
-    }, 1000);
-  });
-});
-</script>
-</body></html>
+  <div class="tracker-section" id="trackers">
+    <div class="section-title">
+      <h2>Online Trackers</h2>
+      <p>Popular web-based tracking tools for different games</p>
+      <div class="tutorial-note">
+        <p>The usage process may vary, but each tracker includes a tutorial tailored to the specific device being used. Some even offer multiple tutorials if applicable.</p>
+      </div>
+    </div>
+    <div class="tracker-grid">
+      <div class="tracker-card" style="--delay: 0">
+        <h2>Paimon.moe</h2>
+        <p>Track your Genshin Impact wishes, characters, and materials with this comprehensive tool. Perfect for planning your pulls and managing resources.</p>
+        <a href="https://paimon.moe/wish" class="tracker-link" target="_blank">Open Tracker</a>
+      </div>
+      
+      <div class="tracker-card" style="--delay: 0.2">
+        <h2>StarRail Station</h2>
+        <p>Your go-to destination for Honkai: Star Rail warp tracking. Monitor your pity and plan your future warps effectively.</p>
+        <a href="https://starrailstation.com/en/warp#char_event" class="tracker-link" target="_blank">Open Tracker</a>
+      </div>
+      
+      <div class="tracker-card" style="--delay: 0.4">
+        <h2>Zenless Zone Zero DB</h2>
+        <p>Keep track of your ZZZ signals and progression with this specialized tracker. Stay ahead in your collection journey.</p>
+        <a href="https://zzz.rng.moe/en/tracker/import" class="tracker-link" target="_blank">Open Tracker</a>
+      </div>
+      
+      <div class="tracker-card" style="--delay: 0.6">
+        <h2>Wuwa Tracker</h2>
+        <p>Comprehensive tracking tool for various gacha games. Monitor your pulls, resources, and progress across multiple titles.</p>
+        <a href="https://wuwatracker.com/import?platform=android&method=ascent" class="tracker-link" target="_blank">Open Tracker</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="tools-section" id="tools">
+    <div class="section-container">
+      <div class="section-title">
+        <h2>Helpful Tools</h2>
+        <p>Essential tools for tracking on mobile devices</p>
+      </div>
+      <div class="tools-grid">
+        <div class="tool-card ascent-style">
+          <div class="tool-content">
+            <h2>Ascent - Local Wish History Exporter (Android)</h2>
+            <p>A powerful open-source tool that lets you export and track your wish history locally across multiple gacha games:</p>
+            <ul class="tool-features">
+              <li>Supports Genshin Impact, Honkai: Star Rail, and more</li>
+              <li>Local storage for enhanced privacy</li>
+              <li>Export data in multiple formats</li>
+              <li>Regular updates and community support</li>
+              <li>Available for Android devices</li>
+            </ul>
+            <div class="tool-buttons">
+              <a href="https://github.com/4o3F/Ascent" class="tool-link primary" target="_blank">
+                <svg class="github-icon" viewBox="0 0 24 24">
+                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+                </svg>
+                Download from GitHub
+              </a>
+              <a href="https://github.com/4o3F/Ascent#readme" class="tool-link secondary" target="_blank">Documentation</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card stream-style">
+          <div class="tool-content">
+            <h2>Stream - Network Debug Tool (iOS)</h2>
+            <p>A professional network debugging tool exclusively for iOS devices:</p>
+            <ul class="tool-features">
+              <li>Monitor network traffic in real-time</li>
+              <li>Debug API requests and responses</li>
+              <li>Analyze network performance</li>
+              <li>Essential for mobile game development</li>
+              <li>Available on the App Store</li>
+            </ul>
+            <div class="tool-buttons">
+              <a href="https://apps.apple.com/us/app/stream-network-debug-tool/id1312141691" class="tool-link primary" target="_blank">
+                <svg class="apple-icon" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/>
+                </svg>
+                Download on App Store
+              </a>
+              <a href="#" class="tool-link secondary" target="_blank">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Pull & Play</h3>
+        <p>Your ultimate companion for gacha gaming success. Comprehensive guides, optimized builds, and detailed game information.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Pull & Play. All rights reserved.</p>
+      <p class="legal">This site is not affiliated with or endorsed by game publishers. All game assets are property of their respective owners.</p>
+    </div>
+  </footer>
+
+  <script src="main2.js"></script>
+</body>
+</html>
